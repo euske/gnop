@@ -217,6 +217,10 @@ class Game extends GameScene {
 	this.paddle.setMove(v);
     }
 
+    onMouseMove(p: Vec2) {
+        this.paddle.setMove(p.sub(this.paddle.pos).sign());
+    }
+
     gameOver() {
 	let banner = new BannerBox(this.world.area, FONT, ['GAME OVER!']);
 	this.world.add(banner);
